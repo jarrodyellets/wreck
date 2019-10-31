@@ -14,9 +14,11 @@
         "lib"
     ],
     "dependencies": {
-        "@hapi/bourne": "1.x.x",
         "@hapi/boom": "8.x.x",
-        "@hapi/hoek": "8.x.x"
+        "@hapi/bourne": "1.x.x",
+        "@hapi/hoek": "8.x.x",
+        "typedoc": "^0.15.0",
+        "typedoc-plugin-markdown": "^2.2.11"
     },
     "devDependencies": {
         "@hapi/code": "7.x.x",
@@ -24,7 +26,8 @@
     },
     "scripts": {
         "test": "lab -t 100 -L -a @hapi/code -m 10000 -Y",
-        "test-cov-html": "lab -r html -o coverage.html -a @hapi/code -m 10000"
+        "test-cov-html": "lab -r html -o coverage.html -a @hapi/code -m 10000",
+        "generateDocs": "typedoc docs lib --readme none --ignoreCompilerErrors --target ES6 --plugin typedoc-plugin-markdown --includeDeclarations --disableOutputCheck --excludeExternals -hideSources -hideBreadcrumbs"
     },
     "license": "BSD-3-Clause"
 }
